@@ -20,12 +20,13 @@ from Django_Vue.settings import MEDIA_ROOT
 from django.views.static import serve
 from rest_framework.documentation import include_docs_urls
 # from goods.views.base import GoodsListView
-from goods.views import GoodsListViewSet
+from goods.views import GoodsListViewSet, CategoryViewSet
 from rest_framework.routers import DefaultRouter
 
 router = DefaultRouter()
 # 配置goods的url
-router.register('goods', GoodsListViewSet)
+router.register('goods', GoodsListViewSet, base_name="goods")
+router.register('categorys', CategoryViewSet, base_name="categorys")
 
 urlpatterns = [
     path('xadmin/', xadmin.site.urls),
