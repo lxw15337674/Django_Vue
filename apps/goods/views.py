@@ -14,7 +14,7 @@ from .filters import GoodsFilter
 class GoodsPagination(PageNumberPagination):
     page_size = 10
     page_size_query_param = 'page_size'
-    page_query_param = 'p'
+    page_query_param = 'page'
     max_page_size = 100
 
 
@@ -41,7 +41,7 @@ class CategoryViewSet(mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets
     list:
         商品分类列表数据
     """
-    queryset = GoodsCategory.objects.filter(category_type=1)
+    queryset = GoodsCategory.objects.all()
     serializer_class = CategorySerializer
 
 
